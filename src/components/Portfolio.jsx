@@ -1,225 +1,326 @@
+import { useState } from "react";
 import "./Portfolio.css";
+import Reveal from "./Reveal";
 
 function Portfolio() {
-  return (
-    <section className="portfolio" id="portfolio">
 
-      <div className="portfolio-logo">
-        <img src="/logo.png" alt="Editor Seth Logo" />
-      </div>
 
-      <div className="portfolio-header">
-        <p className="section-tag">MY WORK</p>
+const [activeCategory, setActiveCategory] = useState("Podcast Reel");
 
-        <h2>
-          Videos that capture
-          <br />
-          attention.
-        </h2>
 
-        <p className="section-description">
-          A collection of edits created for creators, brands and digital platforms.
-        </p>
-      </div>
 
-      <div className="portfolio-grid">
+const categories = [
+ "Podcast Reel",
+ "Real Estate",
+ "AI Videos",
+ "Before / After",
+ "Podcast"
+];
 
-        {/* Podcast 1 */}
-        <a
-          href="https://www.instagram.com/reel/DZXKX8hRt3i/?igsh=YTZhcHVleGhuMDAy"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/podcast-thumbnail.png" alt="Podcast Reel 1" />
-            <span>▶</span>
-          </div>
 
-          <h3>Podcast Reel 1</h3>
-          <p>High retention podcast editing.</p>
-        </a>
 
-        {/* Podcast 2 */}
-        <a
-          href="https://www.instagram.com/reel/Da7dfRCx111/?igsh=eThxODllemxpcTFx"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/podcast-thumbnail-2.png" alt="Podcast Reel 2" />
-            <span>▶</span>
-          </div>
+const projects = [
 
-          <h3>Podcast Reel 2</h3>
-          <p>High retention podcast editing.</p>
-        </a>
 
-        {/* Podcast 3 */}
-        <a
-          href="https://www.instagram.com/reel/DbK3Lgdxhe9/?igsh=NHVkbmxkeDY1dGVw"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/podcast-thumbnail-3.png" alt="Podcast Reel 3" />
-            <span>▶</span>
-          </div>
+{
+category:"Podcast Reel",
+image:"/podcast-thumbnail.png",
+title:"Podcast Reel 1",
+desc:"High retention podcast editing.",
+link:"https://www.instagram.com/reel/DZXKX8hRt3i/?igsh=YTZhcHVleGhuMDAy"
+},
 
-          <h3>Podcast Reel 3</h3>
-          <p>High retention podcast editing.</p>
-        </a>
 
-        {/* Real Estate 1 */}
-        <a
-          href="https://www.instagram.com/reel/DbBUJ22Rcfd/?igsh=MW0ybGQ3M2N4NnBhaA=="
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/realestate-1.png" alt="Real Estate 1" />
-            <span>▶</span>
-          </div>
+{
+category:"Podcast Reel",
+image:"/podcast-thumbnail-2.png",
+title:"Podcast Reel 2",
+desc:"High retention podcast editing.",
+link:"https://www.instagram.com/reel/Da7dfRCx111/?igsh=eThxODllemxpcTFx"
+},
 
-          <h3>Real Estate 1</h3>
-          <p>Cinematic property videos.</p>
-        </a>
 
-        {/* Real Estate 2 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/realestate-2.jpg" alt="Real Estate 2" />
-            <span>▶</span>
-          </div>
+{
+category:"Podcast Reel",
+image:"/podcast-thumbnail-3.png",
+title:"Podcast Reel 3",
+desc:"High retention podcast editing.",
+link:"https://www.instagram.com/reel/DbK3Lgdxhe9/?igsh=NHVkbmxkeDY1dGVw"
+},
 
-          <h3>Real Estate 2</h3>
-          <p>Cinematic property videos.</p>
-        </a>
 
-        {/* Real Estate 3 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/realestate-3.jpg" alt="Real Estate 3" />
-            <span>▶</span>
-          </div>
 
-          <h3>Real Estate 3</h3>
-          <p>Cinematic property videos.</p>
-        </a>
+{
+category:"Real Estate",
+image:"/realestate-1.png",
+title:"Real Estate 1",
+desc:"Cinematic property videos.",
+link:"https://www.instagram.com/reel/DbBUJ22Rcfd/?igsh=MW0ybGQ3M2N4NnBhaA=="
+},
 
-        {/* AI Video 1 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/ai-video-1.jpg" alt="AI Video 1" />
-            <span>▶</span>
-          </div>
 
-          <h3>AI Video 1</h3>
-          <p>Creative AI visuals with storytelling.</p>
-        </a>
+{
+category:"Real Estate",
+image:"/realestate-2.jpg",
+title:"Real Estate 2",
+desc:"Cinematic property videos.",
+link:"https://instagram.com"
+},
 
-        {/* AI Video 2 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/ai-video-2.jpg" alt="AI Video 2" />
-            <span>▶</span>
-          </div>
 
-          <h3>AI Video 2</h3>
-          <p>Creative AI visuals with storytelling.</p>
-        </a>
+{
+category:"Real Estate",
+image:"/realestate-3.jpg",
+title:"Real Estate 3",
+desc:"Cinematic property videos.",
+link:"https://instagram.com"
+},
 
-        {/* AI Video 3 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/ai-video-3.jpg" alt="AI Video 3" />
-            <span>▶</span>
-          </div>
 
-          <h3>AI Video 3</h3>
-          <p>Creative AI visuals with storytelling.</p>
-        </a>
 
-        {/* Before-After Reel 1 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/before-after-1.png" alt="Before-After Reel 1" />
-            <span>▶</span>
-          </div>
+{
+category:"AI Videos",
+image:"/ai-video-1.jpg",
+title:"AI Video 1",
+desc:"Creative AI visuals with storytelling.",
+link:"https://instagram.com"
+},
 
-          <h3>Before-After Reel 1</h3>
-          <p>Professional before & after editing.</p>
-        </a>
 
-        {/* Before-After Reel 2 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/before-after-2.png" alt="Before-After Reel 2" />
-            <span>▶</span>
-          </div>
+{
+category:"AI Videos",
+image:"/ai-video-2.jpg",
+title:"AI Video 2",
+desc:"Creative AI visuals with storytelling.",
+link:"https://instagram.com"
+},
 
-          <h3>Before-After Reel 2</h3>
-          <p>Professional before & after editing.</p>
-        </a>
 
-        {/* Before-After Reel 3 */}
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="portfolio-card"
-        >
-          <div className="card-image">
-            <img src="/before-after-3.png" alt="Before-After Reel 3" />
-            <span>▶</span>
-          </div>
+{
+category:"AI Videos",
+image:"/ai-video-3.jpg",
+title:"AI Video 3",
+desc:"Creative AI visuals with storytelling.",
+link:"https://instagram.com"
+},
 
-          <h3>Before-After Reel 3</h3>
-          <p>Professional before & after editing.</p>
-        </a>
 
-      </div>
 
-    </section>
-  );
+{
+category:"Before / After",
+image:"/before-after-1.png",
+title:"Before After Reel 1",
+desc:"Professional before & after editing.",
+link:"https://instagram.com"
+},
+
+
+{
+category:"Before / After",
+image:"/before-after-2.png",
+title:"Before After Reel 2",
+desc:"Professional before & after editing.",
+link:"https://instagram.com"
+},
+
+
+{
+category:"Before / After",
+image:"/before-after-3.png",
+title:"Before After Reel 3",
+desc:"Professional before & after editing.",
+link:"https://instagram.com"
+},
+
+
+
+{
+category:"Podcast",
+image:"/long-video-1.jpg",
+title:"Podcast Episode",
+desc:"Long-form YouTube podcast editing.",
+link:"https://youtu.be/RIfAu4c3o8s?si=reyFKKJNEoZQyN_6"
 }
+
+
+];
+
+
+
+const filteredProjects = projects.filter(
+item => item.category === activeCategory
+);
+
+
+
+return (
+
+<section className="portfolio" id="portfolio">
+
+
+<Reveal>
+
+<div className="portfolio-header">
+
+<p className="section-tag">
+MY WORK
+</p>
+
+
+<h2>
+Videos that capture
+<br/>
+attention.
+</h2>
+
+
+<p className="section-description">
+A collection of edits created for creators,
+brands and digital platforms.
+</p>
+
+
+</div>
+
+</Reveal>
+
+
+
+<Reveal delay={0.2}>
+
+<div className="portfolio-categories">
+
+{
+categories.map((cat)=>(
+
+<button
+
+key={cat}
+
+className={
+activeCategory === cat
+?
+"active"
+:
+""
+}
+
+onClick={()=>setActiveCategory(cat)}
+
+>
+
+{cat}
+
+</button>
+
+))
+
+}
+
+</div>
+
+</Reveal>
+
+
+
+
+
+<div className="portfolio-grid">
+
+
+{
+
+filteredProjects.map((project,index)=>(
+
+
+<Reveal
+
+key={index}
+
+delay={index * 0.08}
+
+>
+
+
+<a
+
+href={project.link}
+
+target="_blank"
+
+rel="noreferrer"
+
+className={
+project.category === "Podcast"
+?
+"portfolio-card podcast-card"
+:
+"portfolio-card"
+}
+
+>
+
+
+<div className={
+project.category === "Podcast"
+?
+"card-image horizontal-card-image"
+:
+"card-image"
+}>
+
+
+<img
+
+src={project.image}
+
+alt={project.title}
+
+/>
+
+
+<span>
+▶
+</span>
+
+
+</div>
+
+
+
+<h3>
+{project.title}
+</h3>
+
+
+<p>
+{project.desc}
+</p>
+
+
+
+</a>
+
+
+</Reveal>
+
+
+))
+
+
+}
+
+
+</div>
+
+
+
+</section>
+
+);
+
+
+}
+
 
 export default Portfolio;

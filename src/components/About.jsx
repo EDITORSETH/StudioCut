@@ -7,7 +7,6 @@ function About() {
       <div className="about-container">
 
         {/* Left Side */}
-
         <div className="about-left">
           <div className="about-image">
             <img src="/logo.png" alt="Editor Seth" />
@@ -15,10 +14,9 @@ function About() {
         </div>
 
         {/* Right Side */}
-
         <div className="about-right">
 
-          <p className="section-tag">ABOUT ME TEST</p>
+          <p className="section-tag">ABOUT ME</p>
 
           <h2>
             Hi, I'm <span>Editor Seth</span>
@@ -33,36 +31,33 @@ function About() {
           </p>
 
           <div className="skills">
-            <span>Premiere Pro</span>
-            <span>Adobe Express</span>
-            <span>Canva</span>
-            <span>CapCut Pro</span>
-            <span>AI Tools</span>
+            <span>Storytelling</span>
+            <span>High Retention</span>
+            <span>Cinematic Editing</span>
+            <span>Short Form Content</span>
+            <span>AI Workflow</span>
           </div>
 
         </div>
 
       </div>
 
-
       {/* Stats */}
 
       <div className="about-stats">
 
         <div className="stat-card">
-          <h3>20+</h3>
+          <h3>50+</h3>
           <p>Projects Completed</p>
         </div>
 
         <div className="stat-card">
-          <h3>5M+</h3>
-          <p>Views Generated</p>
-        </div>
-
-        <div className="stat-card">
-          <h3>5+</h3>
-          <p>Happy Clients</p>
-        </div>
+  <h3>5+</h3>
+  <p>Happy Clients</p>
+  <small>
+    Few clients, long-term collaborations.
+  </small>
+</div>
 
         <div className="stat-card">
           <h3>2+</h3>
@@ -70,7 +65,6 @@ function About() {
         </div>
 
       </div>
-
 
       {/* Certificate */}
 
@@ -87,6 +81,68 @@ function About() {
           <div className="certificate-image">
             {/* Later add your certificate image here */}
           </div>
+
+        </div>
+
+      </div>
+
+      {/* Tools */}
+
+      <div className="certificate-section">
+
+        <p className="section-tag">TOOLS I USE</p>
+
+        <div className="skills tools-list">
+          <span>Adobe Premiere Pro</span>
+          <span>CapCut Pro</span>
+          <span>Canva</span>
+          <span>Adobe Express</span>
+          <span>Audacity</span>
+        </div>
+
+      </div>
+
+      {/* Why Choose Us */}
+
+      <div className="why-us">
+
+        <p className="section-tag">WHY CHOOSE US</p>
+
+        <h2>Why Clients Choose Us</h2>
+
+        <div className="why-grid">
+
+          <div className="why-card">
+            <h3>⚡ High Retention Editing</h3>
+            <p>Edits designed to keep viewers watching till the end.</p>
+          </div>
+
+          <div className="why-card">
+            <h3>🎬 Cinematic Storytelling</h3>
+            <p>Every cut, transition and sound is crafted with purpose.</p>
+          </div>
+
+          <div className="why-card">
+            <h3>🚀 Fast Turnaround</h3>
+            <p>Quick delivery without compromising quality.</p>
+          </div>
+
+          <div className="why-card">
+            <h3>🤝 Clear Communication</h3>
+            <p>Regular updates and smooth collaboration throughout.</p>
+          </div>
+
+          <div className="why-card">
+            <h3>🔁 Revision Friendly</h3>
+            <p>Your feedback matters until you're satisfied.</p>
+          </div>
+
+          <div className="why-card">
+  <h3>⏱️ Deadline Driven</h3>
+  <p>
+    A reliable editing team focused on quality, consistency and on-time delivery.
+  </p>
+</div>
 
         </div>
 
