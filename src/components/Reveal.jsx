@@ -2,22 +2,33 @@ import { useEffect, useRef, useState } from "react";
 import "./Reveal.css";
 
 function Reveal({ children, delay = 0 }) {
+
   const ref = useRef(null);
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setShow(entry.isIntersecting);
+
+        if (entry.isIntersecting) {
+          setShow(true);
+          observer.unobserve(entry.target);
+        }
+
       },
       {
-        threshold: 0.15,
+        threshold: 0.05,
+        rootMargin: "100px",
       }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
     return () => observer.disconnect();
+
   }, []);
 
   return (
@@ -25,7 +36,7 @@ function Reveal({ children, delay = 0 }) {
       ref={ref}
       className={`reveal ${show ? "active" : ""}`}
       style={{
-        transitionDelay: show ? `${delay}s` : "0s",
+        transitionDelay: `${delay}s`,
       }}
     >
       {children}
