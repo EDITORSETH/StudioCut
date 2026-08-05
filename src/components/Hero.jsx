@@ -19,7 +19,8 @@ function Hero() {
               alt="Editor Seth Logo"
             />
 
-            AVAILABLE FOR FULL-TIME EDITOR
+            #AVAILABLE FOR FULL-TIME ROLES
+            
 
           </div>
 

@@ -5,208 +5,388 @@ import { supabase } from "../supabaseClient";
 function Reviews({ setShowReviewForm }) {
 
   const [reviews, setReviews] = useState([]);
-
+  const [openCard, setOpenCard] = useState(null);
 
   useEffect(() => {
     getReviews();
   }, []);
 
 
-
-  async function getReviews(){
+  async function getReviews() {
 
     const { data, error } = await supabase
       .from("reviews")
       .select("*")
-      .eq("status","approved")
-      .order("created_at",{ascending:false});
+      .eq("status", "approved")
+.order("display_order", { ascending: true });
 
+    if (error) {
 
-    if(error){
       console.log(error);
-    }
-    else{
+
+    } else {
+
       setReviews(data);
+
     }
 
   }
 
 
-
-  function openReviewForm(){
+  function openReviewForm() {
 
     setShowReviewForm(true);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
       document
-      .getElementById("leave-review")
-      ?.scrollIntoView({
-        behavior:"smooth"
-      });
+        .getElementById("leave-review")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
 
-    },200);
+    }, 200);
 
   }
-
-
 
 
   return (
 
-    <section className="reviews" id="reviews">
+<section className="reviews" id="reviews">
 
 
-      <div className="reviews-header">
+<div className="reviews-header">
 
+<p className="section-tag">
+TESTIMONIALS
+</p>
 
-        <p className="section-tag">
-          CLIENT REVIEWS
-        </p>
 
+<h2>
+Trusted by
+<br />
+Creators & Brands
+</h2>
 
-        <h2>
-          Creators Trust
-          <br/>
-          Our Editing
-        </h2>
 
+<p className="reviews-desc">
+Genuine feedback from clients who trusted EDITOR SETH with their content.
+</p>
 
-        <p className="reviews-desc">
-          Real reviews from creators and businesses we've worked with.
-        </p>
 
+</div>
 
 
-        <button
-          className="view-review-btn"
-          onClick={()=>{
-            document
-            .getElementById("review-list")
-            ?.scrollIntoView({
-              behavior:"smooth"
-            });
-          }}
-        >
-          View Reviews
-        </button>
+<div
+className="reviews-grid"
+id="review-list"
+>
 
 
+{
+reviews.length === 0 ? (
 
-      </div>
+<p className="no-review">
+No testimonials available yet.
+</p>
 
 
+) : (
 
 
+reviews.map((item,index)=>{
 
-      <div 
-        className="reviews-grid"
-        id="review-list"
-      >
 
+const hasProfiles =
+item.instagram ||
+item.youtube ||
+item.linkedin ||
+item.facebook ||
+item.website ||
+item.social_link;
 
-        {
-          reviews.length === 0 ? (
 
-            <p className="no-review">
-              No reviews yet.
-            </p>
 
-          ) : (
+return(
 
-            reviews.map((item)=>(
 
-              <div
-                className="review-card"
-                key={item.id}
-              >
+<div
+className="review-card"
+key={item.id}
+>
 
 
-                <div className="review-top">
+{
+item.client_image && (
 
-                  <div className="review-user">
+<img
+src={item.client_image}
+alt={item.name}
+className="review-image"
+/>
 
-                    <h3>
-                      {item.name}
-                    </h3>
+)
 
-                  </div>
+}
 
-                </div>
 
+<div className="review-head">
 
 
+<div>
 
-                <div className="stars">
-                  {"★".repeat(item.rating)}
-                </div>
 
+<h3>
+{item.name}
+</h3>
 
 
+<p className="verified">
+{item.client_role}
+</p>
 
-                <p className="review-text">
-                  "{item.review}"
-                </p>
 
+</div>
 
 
+<div className="stars">
+{"★".repeat(item.rating)}
+</div>
 
-                {
-                  item.social_link && (
 
-                    <div className="review-socials">
+</div>
 
-                      <a
-                        href={item.social_link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        View Profile
-                      </a>
 
-                    </div>
+<p className="review-text">
+“{item.review}”
+</p>
 
-                  )
-                }
+{
+hasProfiles && (
 
+<div className="profiles-box">
 
 
-              </div>
+<button
 
-            ))
+className="profiles-toggle"
 
-          )
-        }
+onClick={()=>{
 
+setOpenCard(
+openCard===index
+? null
+: index
+);
 
+}}
 
-      </div>
+>
 
+<span>
+📁 Profiles
+</span>
 
 
+<span>
+{openCard===index ? "−" : "+"}
+</span>
 
 
-      <div className="review-bottom">
+</button>
 
 
-        <p>
-          Worked with me?
-        </p>
 
+{
+openCard===index && (
 
-        <button
-          className="bottom-review-btn"
-          onClick={openReviewForm}
-        >
-          Leave a Review
-        </button>
 
+<div className="profiles-list">
 
-      </div>
 
+{
+item.instagram && (
 
+<a
+href={item.instagram}
+target="_blank"
+rel="noreferrer"
+>
 
-    </section>
+Instagram
+
+</a>
+
+)
+
+}
+
+
+
+{
+item.youtube && (
+
+<a
+href={item.youtube}
+target="_blank"
+rel="noreferrer"
+>
+
+YouTube
+
+</a>
+
+)
+
+}
+
+
+
+
+{
+item.linkedin && (
+
+<a
+href={item.linkedin}
+target="_blank"
+rel="noreferrer"
+>
+
+LinkedIn
+
+</a>
+
+)
+
+}
+
+
+
+
+{
+item.facebook && (
+
+<a
+href={item.facebook}
+target="_blank"
+rel="noreferrer"
+>
+
+Facebook
+
+</a>
+
+)
+
+}
+
+
+
+
+{
+item.website && (
+
+<a
+href={item.website}
+target="_blank"
+rel="noreferrer"
+>
+
+Website
+
+</a>
+
+)
+
+}
+
+
+
+
+{
+!item.instagram &&
+!item.youtube &&
+!item.linkedin &&
+!item.facebook &&
+!item.website &&
+item.social_link && (
+
+<a
+href={item.social_link}
+target="_blank"
+rel="noreferrer"
+>
+
+Visit Profile
+
+</a>
+
+)
+
+}
+
+
+
+</div>
+
+)
+
+}
+
+
+
+</div>
+
+)
+
+}
+
+
+
+</div>
+
+
+);
+
+})
+
+)
+
+}
+
+
+</div>
+
+
+
+<div className="review-bottom">
+
+
+<p>
+Already worked with EDITOR SETH?
+</p>
+
+
+
+<button
+
+className="bottom-review-btn"
+
+onClick={openReviewForm}
+
+>
+
+Leave a Review
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
 
   );
 

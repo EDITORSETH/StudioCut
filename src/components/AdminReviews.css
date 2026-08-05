@@ -1,47 +1,153 @@
 .admin-reviews{
+  min-height:100vh;
   padding:80px 5%;
   background:#050505;
-  color:white;
-  min-height:100vh;
+  color:#fff;
 }
 
 .admin-reviews h1{
   text-align:center;
-  margin-bottom:40px;
-  font-size:45px;
+  font-size:46px;
+  margin-bottom:50px;
 }
 
 .admin-card{
-  background:#111;
-  padding:25px;
-  margin:20px 0;
-  border-radius:15px;
-  border:1px solid #222;
+  background:#0d0d0d;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:28px;
+  margin-bottom:25px;
+  transition:.3s;
+}
+
+.admin-card:hover{
+  border-color:#ff6a00;
 }
 
 .admin-card h3{
+  margin:0 0 12px;
   font-size:24px;
-  margin-bottom:10px;
 }
 
 .admin-card p{
-  color:#aaa;
-  line-height:1.5;
+  color:#cfcfcf;
+  line-height:1.7;
+  margin:8px 0;
 }
 
+.status b{
+  color:#ff6a00;
+}
 
-.admin-card button{
-  margin-right:10px;
-  margin-top:15px;
-  padding:10px 20px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
+.admin-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+
+.admin-link{
+  padding:10px 16px;
+  border-radius:10px;
+  background:#171717;
+  border:1px solid rgba(255,255,255,.08);
+  color:#fff;
+  text-decoration:none;
+  transition:.25s;
+  font-size:14px;
+}
+
+.admin-link:hover{
   background:#ff6a00;
-  color:white;
+  border-color:#ff6a00;
+}
+
+.admin-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:20px;
+}
+
+.admin-buttons button{
+  border:none;
+  cursor:pointer;
+  padding:12px 22px;
+  border-radius:10px;
+  color:#fff;
+  font-weight:600;
+  transition:.25s;
+}
+
+.approve-btn{
+  background:#16a34a;
+}
+
+.reject-btn{
+  background:#ea580c;
+}
+
+.delete-btn{
+  background:#dc2626;
+}
+
+.admin-buttons button:hover{
+  transform:translateY(-2px);
+  opacity:.95;
+}
+
+@media(max-width:768px){
+
+  .admin-reviews{
+    padding:60px 20px;
+  }
+
+  .admin-reviews h1{
+    font-size:34px;
+  }
+
+  .admin-card{
+    padding:20px;
+  }
+
+  .admin-buttons{
+    flex-direction:column;
+  }
+
+  .admin-buttons button{
+    width:100%;
+  }
+
+}
+
+.admin-client{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:20px;
 }
 
 
-.admin-card button:hover{
-  opacity:.8;
+.admin-client img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #ff6a00;
+}
+
+
+.admin-client p{
+margin:3px 0;
+color:#aaa;
+}
+
+
+.admin-links a{
+padding:10px 15px;
+background:#171717;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-size:14px;
 }

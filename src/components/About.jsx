@@ -61,7 +61,7 @@ function About() {
 
         <div className="stat-card">
           <h3>2+</h3>
-          <p>Years Learning</p>
+          <p>Years experienced</p>
         </div>
 
       </div>

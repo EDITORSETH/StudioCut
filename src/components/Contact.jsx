@@ -84,6 +84,28 @@ function Contact() {
 
 
       <p className="contact-text">
+        <div className="paid-sample-card">
+
+<h3>
+Let's Start With a Paid Sample
+</h3>
+
+<p>
+Experience our editing quality with a paid sample before starting a long-term collaboration.
+</p>
+
+<a
+href="https://wa.me/919236549214?text=Hi%20Editor%20Seth!%20I%20want%20to%20start%20with%20a%20paid%20sample."
+target="_blank"
+rel="noreferrer"
+className="paid-sample-btn"
+>
+
+Start Paid Sample →
+
+</a>
+
+</div>
         Looking for a professional video editor for your content?
         Let's connect and create videos that people actually watch.
       </p>
