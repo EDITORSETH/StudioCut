@@ -1,70 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
 .loading-screen {
   position: fixed;
   inset: 0;
+
   background: #050505;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   overflow: hidden;
+
   z-index: 9999;
 
-  opacity:1;
-  transform:scale(1);
-  filter:blur(0px);
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
 
   transition:
-  opacity 1.5s ease,
-  transform 1.5s ease,
-  filter 1.5s ease;
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
 }
 
 
-/* Final Dissolve */
+/* =========================
+   FINAL DISSOLVE
+========================= */
 
-.loading-screen.hide{
-
-  opacity:0;
-
-  transform:scale(1.08);
-
-  filter:blur(15px);
-
-  pointer-events:none;
-
+.loading-screen.hide {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(10px);
+  pointer-events: none;
 }
 
 
+/* =========================
+   ORANGE BACKGROUND GLOW
+========================= */
 
-/* Background Glow */
+.loading-screen::before {
+  content: "";
 
-.loading-screen::before{
-  content:"";
-  position:absolute;
+  position: absolute;
 
-  width:700px;
-  height:700px;
+  width: 600px;
+  height: 600px;
 
-  background:radial-gradient(
+  background: radial-gradient(
     circle,
-    rgba(255,106,0,.28),
+    rgba(255,106,0,.25),
     transparent 70%
   );
 
-  animation:bgPulse 5s ease-in-out infinite;
+  animation: bgPulse 3s ease-in-out infinite;
 
-  filter:blur(35px);
+  filter: blur(35px);
 }
 
 
+.loading-screen::after {
+  content: "";
 
-.loading-screen::after{
-  content:"";
-  position:absolute;
+  position: absolute;
 
-  inset:0;
+  inset: 0;
 
-  background:
-  radial-gradient(
+  background: radial-gradient(
     circle at center,
     transparent 40%,
     rgba(0,0,0,.35)
@@ -72,360 +76,202 @@
 }
 
 
+/* =========================
+   CONTENT
+========================= */
 
-/* Content */
+.loading-content {
+  position: relative;
 
-.loading-content{
+  z-index: 2;
 
-  position:relative;
+  text-align: center;
 
-  z-index:2;
-
-  text-align:center;
-
-  animation:contentZoom 5.6s ease forwards;
-
+  animation: contentZoom 2.8s ease forwards;
 }
 
 
+/* =========================
+   LOGO
+========================= */
 
-/* Logo */
-
-.loading-logo{
-
-  width:200px;
+.loading-logo {
+  width: 190px;
 
   filter:
-  drop-shadow(0 0 35px rgba(255,106,0,.9));
+    drop-shadow(0 0 30px rgba(255,106,0,.8));
 
-  animation:logoIntro 3.8s ease forwards;
+  animation: logoIntro 1.4s ease forwards;
+}
+
+
+/* =========================
+   SIDDHARTH SONI
+========================= */
+
+.loading-name {
+  margin: 22px 0 0;
+
+  color: #ff6a00;
+
+  /*
+    Thin elegant script font,
+    similar to the certificate name
+  */
+ font-family: "Italianno", cursive;
+
+  font-size: 82px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 0 15px rgba(255,106,0,.22);
+}
+
+
+/* Individual letters */
+
+.loading-name span {
+  display: inline-block;
+
+  opacity: 0;
+
+  transform:
+    translateY(12px)
+    scale(.96);
+
+  animation: nameReveal .45s ease forwards;
+}
+
+
+/* Space between first and last name */
+
+.loading-name .name-space {
+  width: 14px;
+}
+
+
+/* =========================
+   LOGO ANIMATION
+========================= */
+
+@keyframes logoIntro {
+
+  0% {
+    opacity: 0;
+    transform: scale(.75);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
 }
 
 
+/* =========================
+   NAME ANIMATION
+========================= */
 
-/* Title */
+@keyframes nameReveal {
 
-.loading-title{
+  0% {
+    opacity: 0;
 
-  margin-top:25px;
+    transform:
+      translateY(12px)
+      scale(.96);
+  }
 
-  font-size:56px;
+  100% {
+    opacity: 1;
 
-  color:white;
-
-  letter-spacing:8px;
-
-  font-weight:800;
-
-  opacity:0;
-
-  animation:titleReveal 1s ease forwards;
-
-  animation-delay:.6s;
-
-}
-
-
-.loading-title span{
-
-  color:#ff6a00;
+    transform:
+      translateY(0)
+      scale(1);
+  }
 
 }
 
 
+/* =========================
+   CONTENT ZOOM
+========================= */
 
-/* Subtitle */
+@keyframes contentZoom {
 
-.loading-subtitle{
+  0% {
+    transform: scale(.97);
+  }
 
-  margin-top:14px;
+  75% {
+    transform: scale(1);
+  }
 
-  color:#9ca3af;
-
-  font-size:17px;
-
-  letter-spacing:4px;
-
-  opacity:0;
-
-  animation:titleReveal 1s ease forwards;
-
-  animation-delay:1s;
-
-}
-
-
-
-/* Ring */
-
-.loading-ring{
-
-  width:72px;
-
-  height:72px;
-
-  border-radius:50%;
-
-  border:3px solid rgba(255,255,255,.12);
-
-  border-top:3px solid #ff6a00;
-
-  margin:40px auto 0;
-
-  animation:spin 1s linear infinite;
+  100% {
+    transform: scale(1.025);
+  }
 
 }
 
 
+/* =========================
+   BACKGROUND GLOW
+========================= */
 
-/* Loading Bar */
+@keyframes bgPulse {
 
-.loading-line{
+  0% {
+    transform: scale(.9);
+    opacity: .5;
+  }
 
-  width:220px;
+  50% {
+    transform: scale(1.12);
+    opacity: .9;
+  }
 
-  height:4px;
-
-  margin:35px auto 0;
-
-  border-radius:30px;
-
-  background:rgba(255,255,255,.08);
-
-  overflow:hidden;
-
-}
-
-
-
-.loading-line span{
-
-  display:block;
-
-  width:35%;
-
-  height:100%;
-
-  background:#ff6a00;
-
-  border-radius:30px;
-
-  animation:loadingBar 2s ease-in-out infinite;
+  100% {
+    transform: scale(.9);
+    opacity: .5;
+  }
 
 }
 
 
-
-/* Logo Animation */
-
-@keyframes logoIntro{
-
-0%{
-
-transform:
-scale(.5)
-rotate(-20deg);
-
-opacity:0;
-
-}
-
-
-40%{
-
-transform:
-scale(1.15)
-rotate(5deg);
-
-opacity:1;
-
-}
-
-
-75%{
-
-transform:
-scale(1);
-
-}
-
-
-100%{
-
-transform:
-scale(.95);
-
-opacity:1;
-
-}
-
-}
-
-
-
-/* Content Zoom */
-
-@keyframes contentZoom{
-
-0%{
-
-transform:scale(1);
-
-}
-
-
-80%{
-
-transform:scale(1);
-
-}
-
-
-100%{
-
-transform:scale(1.05);
-
-}
-
-}
-
-
-
-/* Text Reveal */
-
-@keyframes titleReveal{
-
-from{
-
-opacity:0;
-
-transform:translateY(35px);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-
-/* Ring */
-
-@keyframes spin{
-
-from{
-
-transform:rotate(0deg);
-
-}
-
-
-to{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-
-
-/* Bar */
-
-@keyframes loadingBar{
-
-0%{
-
-transform:translateX(-180%);
-
-}
-
-
-100%{
-
-transform:translateX(500%);
-
-}
-
-}
-
-
-
-/* Glow */
-
-@keyframes bgPulse{
-
-0%{
-
-transform:scale(.9);
-
-opacity:.5;
-
-}
-
-
-50%{
-
-transform:scale(1.2);
-
-opacity:1;
-
-}
-
-
-100%{
-
-transform:scale(.9);
-
-opacity:.5;
-
-}
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:768px){
-
-.loading-logo{
-
-width:140px;
-
-}
-
-
-.loading-title{
-
-font-size:34px;
-
-letter-spacing:4px;
-
-}
-
-
-.loading-subtitle{
-
-font-size:14px;
-
-letter-spacing:2px;
-
-}
-
-
-.loading-line{
-
-width:160px;
-
-}
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .loading-logo {
+    width: 140px;
+  }
+
+  .loading-name {
+    font-size: 54px;
+    letter-spacing: 0;
+  }
+
+  .loading-name .name-space {
+    width: 9px;
+  }
 
 }

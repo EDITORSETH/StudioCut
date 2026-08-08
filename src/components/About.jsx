@@ -2,8 +2,9 @@ import "./About.css";
 
 function About() {
   return (
-    <section className="about">
+    <section className="about-section">
 
+      {/* Main About */}
       <div className="about-container">
 
         {/* Left Side */}
@@ -43,21 +44,12 @@ function About() {
       </div>
 
       {/* Stats */}
-
       <div className="about-stats">
 
         <div className="stat-card">
           <h3>50+</h3>
           <p>Projects Completed</p>
         </div>
-
-        <div className="stat-card">
-  <h3>5+</h3>
-  <p>Happy Clients</p>
-  <small>
-    Few clients, long-term collaborations.
-  </small>
-</div>
 
         <div className="stat-card">
           <h3>2+</h3>
@@ -67,19 +59,27 @@ function About() {
       </div>
 
       {/* Certificate */}
-
       <div className="certificate-section">
 
         <p className="section-tag">CERTIFICATION</p>
 
-        <div className="certificate-title">
-          Certified Video Editor
-        </div>
+       <div className="certificate-heading">
+  <div className="certificate-title">
+    Certificated Editor
+  </div>
+
+  <p className="certificate-provider">
+    Provided by Dahana Media Works Bhopal LLP
+  </p>
+</div>
 
         <div className="certificate-card">
 
           <div className="certificate-image">
-            {/* Later add your certificate image here */}
+            <img
+              src="/certificate.png"
+              alt="Video Editing Internship Certificate"
+            />
           </div>
 
         </div>
@@ -87,7 +87,6 @@ function About() {
       </div>
 
       {/* Tools */}
-
       <div className="certificate-section">
 
         <p className="section-tag">TOOLS I USE</p>
@@ -103,7 +102,6 @@ function About() {
       </div>
 
       {/* Why Choose Us */}
-
       <div className="why-us">
 
         <p className="section-tag">WHY CHOOSE US</p>
@@ -138,11 +136,9 @@ function About() {
           </div>
 
           <div className="why-card">
-  <h3>⏱️ Deadline Driven</h3>
-  <p>
-    A reliable editing team focused on quality, consistency and on-time delivery.
-  </p>
-</div>
+            <h3>💼 Professional Workflow</h3>
+            <p>Reliable process, clear communication and professional delivery.</p>
+          </div>
 
         </div>
 

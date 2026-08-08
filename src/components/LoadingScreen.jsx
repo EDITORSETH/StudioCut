@@ -1,9 +1,10 @@
 import "./LoadingScreen.css";
 
 function LoadingScreen({ hide }) {
+  const name = "SIDDHARTH SONI";
+
   return (
     <div className={`loading-screen ${hide ? "hide" : ""}`}>
-
       <div className="loading-content">
 
         <img
@@ -12,22 +13,19 @@ function LoadingScreen({ hide }) {
           className="loading-logo"
         />
 
-        <h1 className="loading-title">
-          EDITOR <span>SETH</span>
+        <h1 className="loading-name">
+          {name.split("").map((letter, index) => (
+            <span
+              key={index}
+              className={letter === " " ? "name-space" : ""}
+              style={{ animationDelay: `${0.45 + index * 0.08}s` }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
         </h1>
 
-        <p className="loading-subtitle">
-          Professional Video Editor
-        </p>
-
-        <div className="loading-ring"></div>
-
-        <div className="loading-line">
-          <span></span>
-        </div>
-
       </div>
-
     </div>
   );
 }

@@ -585,3 +585,156 @@
 .podcast-card{
   grid-column:span 1;
 }
+
+
+/* LONG VIDEO - HORIZONTAL 16:9 */
+
+/* LONG VIDEO - LARGE HORIZONTAL */
+
+.long-video-card{
+  width:100%;
+  max-width:1400px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:20px;
+}
+
+.long-video-card .card-image{
+  width:100%;
+  aspect-ratio:16 / 9;
+  height:auto;
+  border-radius:15px;
+}
+
+.long-video-card .card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.long-video-card .card-image{
+  width:100%;
+  aspect-ratio:16 / 9;
+  height:auto;
+  border-radius:15px;
+}
+
+.long-video-card .card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* LONG VIDEO - HORIZONTAL */
+
+.long-video-card {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.long-video-card .card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.long-video-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= SMALL VERTICAL REELS ================= */
+
+.portfolio-grid .portfolio-card:not(.long-video-card):not(.podcast-card) {
+  width: 180px;
+}
+
+.portfolio-grid .portfolio-card:not(.long-video-card):not(.podcast-card) > img {
+  width: 180px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+  .portfolio-grid .portfolio-card:not(.long-video-card):not(.podcast-card) {
+    width: auto;
+  }
+
+  .portfolio-grid .portfolio-card:not(.long-video-card):not(.podcast-card) > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+
+}/* ================= FINAL HORIZONTAL VIDEO SIZE ================= */
+
+/* LONG VIDEO */
+
+.long-video-card {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.long-video-card > img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+  display: block !important;
+}
+
+
+/* PODCAST */
+
+.podcast-card {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.podcast-card > img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+  display: block !important;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+  .long-video-card,
+  .podcast-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .long-video-card > img,
+  .podcast-card > img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+}
