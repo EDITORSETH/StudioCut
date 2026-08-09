@@ -201,9 +201,9 @@
      Mobile par 3 columns nahi,
      ek column */
   .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
 
   /* ================= VERTICAL MOBILE ================= */
 
@@ -309,6 +309,67 @@
   .vertical-card > img {
     width: 160px;
     height: 284px;
+  }
+
+}/* ================= MOBILE GRID ================= */
+
+@media (max-width: 900px) {
+
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  /* ================= REELS ================= */
+
+  .vertical-card {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  .vertical-card > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .vertical-card h3 {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .vertical-card p {
+    display: none;
+  }
+
+
+  /* ================= LONG VIDEO + PODCAST ================= */
+
+  .long-video-card,
+  .podcast-card {
+    grid-column: 1 / -1;
+
+    width: calc(100% + 32px);
+    max-width: none;
+
+    margin-left: -16px;
+    margin-right: -16px;
+
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .long-video-card > img,
+  .podcast-card > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
   }
 
 }
