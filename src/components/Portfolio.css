@@ -1,3 +1,7 @@
+/* =====================================================
+   PORTFOLIO / MY WORK
+   ===================================================== */
+
 .portfolio {
   padding: 100px 5%;
   background: #050505;
@@ -29,7 +33,9 @@
 }
 
 
-/* ================= CATEGORY BUTTONS ================= */
+/* =====================================================
+   CATEGORY BUTTONS
+   ===================================================== */
 
 .portfolio-categories {
   display: flex;
@@ -64,16 +70,20 @@
 }
 
 
-/* ================= PROJECT GRID ================= */
+/* =====================================================
+   NORMAL PROJECT GRID
+   ===================================================== */
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
 }
 
 
-/* ================= ALL CARDS ================= */
+/* =====================================================
+   ALL CARDS
+   ===================================================== */
 
 .portfolio-card {
   background: rgba(255,255,255,.05);
@@ -93,7 +103,9 @@
 }
 
 
-/* ================= VERTICAL VIDEOS ================= */
+/* =====================================================
+   VERTICAL REELS - DESKTOP
+   ===================================================== */
 
 .vertical-card {
   width: 180px;
@@ -119,7 +131,9 @@
 }
 
 
-/* ================= LONG VIDEO ================= */
+/* =====================================================
+   LONG VIDEO - DESKTOP
+   ===================================================== */
 
 .long-video-card {
   grid-column: 1 / -1;
@@ -138,7 +152,9 @@
 }
 
 
-/* ================= PODCAST ================= */
+/* =====================================================
+   PODCAST - DESKTOP
+   ===================================================== */
 
 .podcast-card {
   grid-column: 1 / -1;
@@ -157,7 +173,9 @@
 }
 
 
-/* ================= CARD TEXT ================= */
+/* =====================================================
+   LONG VIDEO + PODCAST TEXT
+   ===================================================== */
 
 .long-video-card h3,
 .podcast-card h3 {
@@ -172,7 +190,9 @@
 }
 
 
-/* ================= NO PROJECT ================= */
+/* =====================================================
+   NO PROJECT
+   ===================================================== */
 
 .no-project {
   text-align: center;
@@ -181,7 +201,9 @@
 }
 
 
-/* ================= TABLET ================= */
+/* =====================================================
+   TABLET / MOBILE
+   ===================================================== */
 
 @media (max-width: 900px) {
 
@@ -197,188 +219,10 @@
     font-size: 15px;
   }
 
-  /* IMPORTANT:
-     Mobile par 3 columns nahi,
-     ek column */
-  .portfolio-grid {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
 
-  /* ================= VERTICAL MOBILE ================= */
-
-  .vertical-card {
-    width: 180px;
-    justify-self: center;
-    padding: 5px;
-    border-radius: 10px;
-  }
-
-  .vertical-card > img {
-    width: 180px;
-    height: 320px;
-    border-radius: 10px;
-  }
-
-  .vertical-card h3 {
-    font-size: 10px;
-    text-align: center;
-    margin: 8px 0 0;
-  }
-
-  .vertical-card p {
-    display: none;
-  }
-
-
-  /* ================= HORIZONTAL MOBILE ================= */
-
-  .long-video-card,
-.podcast-card {
-  width: calc(100% + 32px);
-  max-width: none;
-  margin-left: -16px;
-  margin-right: -16px;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-  .long-video-card > img,
-  .podcast-card > img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  .long-video-card h3,
-  .podcast-card h3 {
-    font-size: 20px;
-  }
-
-  .long-video-card p,
-  .podcast-card p {
-    display: none;
-  }
-
-
-  /* ================= BUTTONS ================= */
-
-  .portfolio-categories {
-    gap: 10px;
-    margin-bottom: 30px;
-  }
-
-  .portfolio-categories button {
-    padding: 10px 18px;
-    font-size: 13px;
-  }
-
-}
-
-
-/* ================= SMALL PHONES ================= */
-
-@media (max-width: 480px) {
-
-  .portfolio {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .portfolio-grid {
-    gap: 18px;
-  }
-
-  .long-video-card,
-  .podcast-card {
-    padding: 8px;
-  }
-
-  .long-video-card > img,
-  .podcast-card > img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
-
-  .vertical-card {
-    width: 160px;
-  }
-
-  .vertical-card > img {
-    width: 160px;
-    height: 284px;
-  }
-
-}/* ================= MOBILE GRID ================= */
-
-@media (max-width: 900px) {
-
-  .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  /* ================= REELS ================= */
-
-  .vertical-card {
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-  }
-
-  .vertical-card > img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .vertical-card h3 {
-    font-size: 10px;
-    text-align: center;
-  }
-
-  .vertical-card p {
-    display: none;
-  }
-
-
-  /* ================= LONG VIDEO + PODCAST ================= */
-
-  .long-video-card,
-  .podcast-card {
-    grid-column: 1 / -1;
-
-    width: calc(100% + 32px);
-    max-width: none;
-
-    margin-left: -16px;
-    margin-right: -16px;
-
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .long-video-card > img,
-  .podcast-card > img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    display: block;
-    border-radius: 0;
-  }
-
-}/* =====================================================
-   FINAL MOBILE PORTFOLIO FIX
-   ===================================================== */
-
-@media (max-width: 900px) {
-
-  /* ---------- GRID ---------- */
+  /* ===================================================
+     NORMAL GRID
+     =================================================== */
 
   .portfolio-grid {
     display: grid;
@@ -387,175 +231,13 @@
   }
 
 
-  /* =================================================
+  /* ===================================================
      VERTICAL REELS
-     3 IN ONE ROW
-     ================================================= */
+     =================================================== */
 
   .portfolio-grid .vertical-card {
     width: 100%;
     min-width: 0;
-    padding: 6px;
-    box-sizing: border-box;
-  }
-
-  .portfolio-grid .vertical-card > img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    display: block;
-    border-radius: 10px;
-  }
-
-  .portfolio-grid .vertical-card h3 {
-    font-size: 11px;
-    text-align: center;
-    margin: 8px 0 0;
-  }
-
-  .portfolio-grid .vertical-card p {
-    display: none;
-  }
-
-
-  /* =================================================
-     HORIZONTAL - LONG VIDEO + PODCAST
-     FULL PHONE WIDTH
-     ================================================= */
-
-  .portfolio-grid .long-video-card,
-  .portfolio-grid .podcast-card {
-
-    grid-column: 1 / -1;
-
-    width: calc(100% + 32px);
-    max-width: none;
-
-    margin-left: -16px;
-    margin-right: -16px;
-
-    padding: 0;
-
-    box-sizing: border-box;
-  }
-
-
-  /* 16:9 THUMBNAIL */
-
-  .portfolio-grid .long-video-card > img,
-  .portfolio-grid .podcast-card > img {
-
-    width: 100%;
-    height: auto;
-
-    aspect-ratio: 16 / 9;
-
-    object-fit: cover;
-
-    display: block;
-
-    border-radius: 0;
-  }
-
-
-  /* TEXT */
-
-  .portfolio-grid .long-video-card h3,
-  .portfolio-grid .podcast-card h3 {
-
-    font-size: 20px;
-    margin: 12px 16px 8px;
-  }
-
-  .portfolio-grid .long-video-card p,
-  .portfolio-grid .podcast-card p {
-    display: none;
-  }
-
-}
-
-
-/* =====================================================
-   SMALL PHONES
-   ===================================================== */
-
-@media (max-width: 480px) {
-
-  /* REELS - still 3 in row */
-  .portfolio-grid {
-    gap: 8px;
-  }
-
-  .portfolio-grid .vertical-card {
-    padding: 5px;
-  }
-
-  .portfolio-grid .vertical-card > img {
-    border-radius: 8px;
-  }
-
-  .portfolio-grid .vertical-card h3 {
-    font-size: 10px;
-  }
-
-
-  /* HORIZONTAL - EDGE TO EDGE */
-
-  .portfolio-grid .long-video-card,
-  .portfolio-grid .podcast-card {
-
-    width: calc(100% + 24px);
-
-    margin-left: -12px;
-    margin-right: -12px;
-  }
-
-}/* =====================================================
-   FINAL FIX - REVEAL WRAPPER + MOBILE
-   ===================================================== */
-
-@media (max-width: 900px) {
-
-  /* REELS - 3 PER ROW */
-  .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  /* Reveal wrapper containing Long Video / Podcast */
-  .portfolio-grid > *:has(.long-video-card),
-  .portfolio-grid > *:has(.podcast-card) {
-    grid-column: 1 / -1;
-    width: 100%;
-  }
-
-  /* Long Video + Podcast card */
-  .portfolio-grid > *:has(.long-video-card) .long-video-card,
-  .portfolio-grid > *:has(.podcast-card) .podcast-card {
-    width: calc(100% + 32px);
-    max-width: none;
-    margin-left: -16px;
-    margin-right: -16px;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  /* Horizontal thumbnail */
-  .portfolio-grid > *:has(.long-video-card) .long-video-card > img,
-  .portfolio-grid > *:has(.podcast-card) .podcast-card > img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    display: block;
-    border-radius: 0;
-  }
-
-
-  /* REELS */
-  .portfolio-grid .vertical-card {
-    width: 100%;
     padding: 5px;
     box-sizing: border-box;
   }
@@ -569,32 +251,633 @@
     border-radius: 9px;
   }
 
+  .portfolio-grid .vertical-card h3 {
+    font-size: 11px;
+    text-align: center;
+    margin: 8px 0 0;
+  }
+
+  .portfolio-grid .vertical-card p {
+    display: none;
+  }
+
+
+  /* ===================================================
+     LONG VIDEO + PODCAST
+     FULL WIDTH ON MOBILE
+     =================================================== */
+
+  .portfolio-grid .long-video-card,
+  .portfolio-grid .podcast-card {
+    grid-column: 1 / -1;
+
+    width: calc(100% + 32px);
+    max-width: none;
+
+    margin-left: -16px;
+    margin-right: -16px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+  .portfolio-grid .long-video-card > img,
+  .portfolio-grid .podcast-card > img {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 12px;
+  }
+
+
+  /* TEXT */
+
+  .portfolio-grid .long-video-card h3,
+  .portfolio-grid .podcast-card h3 {
+    font-size: 20px;
+    margin: 12px 16px 8px;
+  }
+
+  .portfolio-grid .long-video-card p,
+  .portfolio-grid .podcast-card p {
+    display: none;
+  }
+
+
+  /* ===================================================
+     CATEGORY BUTTONS
+     =================================================== */
+
+  .portfolio-categories {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .portfolio-categories button {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
 }
 
 
-/* SMALL PHONE */
+/* =====================================================
+   MOBILE SHORTS CAROUSEL
+   IMPORTANT:
+   ONLY .shorts-track BECOMES SLIDER
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  .portfolio-grid.shorts-track {
+    display: flex !important;
+
+    flex-wrap: nowrap !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    gap: 0 !important;
+
+    padding: 0 18vw !important;
+    margin: 0 !important;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    position: relative;
+  }
+
+
+  /* Hide scrollbar */
+
+  .portfolio-grid.shorts-track::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* ===================================================
+     EACH SHORT
+     =================================================== */
+
+  .portfolio-grid.shorts-track > .short-item {
+
+    flex: 0 0 76vw !important;
+
+    width: 76vw !important;
+    min-width: 76vw !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    scroll-snap-align: center;
+
+    position: relative;
+
+    transform: scale(0.78);
+
+    opacity: 0.45;
+
+    transition:
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.55s ease;
+
+    z-index: 1;
+  }
+
+
+  /* ===================================================
+     ACTIVE / CENTER SHORT
+     =================================================== */
+
+  .portfolio-grid.shorts-track > .active-short-item {
+
+    transform: scale(1);
+
+    opacity: 1;
+
+    z-index: 5;
+  }
+
+
+  /* ===================================================
+     SHORT CARD
+     =================================================== */
+
+  .portfolio-grid.shorts-track .vertical-card {
+
+    width: 100% !important;
+
+    padding: 6px !important;
+    margin: 0 !important;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ===================================================
+     SHORT THUMBNAIL
+     =================================================== */
+
+  .portfolio-grid.shorts-track .vertical-card > img {
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    aspect-ratio: 9 / 16 !important;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 14px;
+  }
+
+
+  /* ===================================================
+     NO FADE / NO SHADOW
+     =================================================== */
+
+  .portfolio-grid.shorts-track::before,
+  .portfolio-grid.shorts-track::after {
+
+    display: none !important;
+
+    content: none !important;
+  }
+
+
+  /* ===================================================
+     NO FILTER / NO DARK SHADOW ON SIDE REELS
+     =================================================== */
+
+  .portfolio-grid.shorts-track > .short-item:not(.active-short-item) {
+
+    filter: none !important;
+  }
+
+
+  /* ===================================================
+     HIDE DESCRIPTION
+     =================================================== */
+
+  .portfolio-grid.shorts-track .vertical-card p {
+    display: none;
+  }
+
+
+  /* ===================================================
+     SHORT TITLE
+     =================================================== */
+
+  .portfolio-grid.shorts-track .vertical-card h3 {
+
+    font-size: 11px;
+
+    text-align: center;
+
+    margin: 7px 0 0;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
 
 @media (max-width: 480px) {
 
+  .portfolio {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  /* ===================================================
+     NORMAL GRID
+     =================================================== */
+
   .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
 
-  .portfolio-grid > *:has(.long-video-card),
-  .portfolio-grid > *:has(.podcast-card) {
-    grid-column: 1 / -1;
+
+  /* ===================================================
+     VERTICAL REELS
+     =================================================== */
+
+  .portfolio-grid .vertical-card {
+    padding: 5px;
   }
 
-  .portfolio-grid > *:has(.long-video-card) .long-video-card,
-  .portfolio-grid > *:has(.podcast-card) .podcast-card {
+  .portfolio-grid .vertical-card > img {
+    border-radius: 8px;
+  }
+
+  .portfolio-grid .vertical-card h3 {
+    font-size: 10px;
+  }
+
+
+  /* ===================================================
+     LONG VIDEO + PODCAST
+     =================================================== */
+
+  .portfolio-grid .long-video-card,
+  .portfolio-grid .podcast-card {
+
     width: calc(100% + 24px);
+
     margin-left: -12px;
     margin-right: -12px;
   }
 
-  .portfolio-grid .vertical-card > img {
-    aspect-ratio: 9 / 16;
+  .portfolio-grid .long-video-card > img,
+  .portfolio-grid .podcast-card > img {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    height: auto;
+
+    object-fit: cover;
+
+    border-radius: 10px;
   }
 
+
+  /* ===================================================
+     SHORTS CAROUSEL
+     =================================================== */
+
+  .portfolio-grid.shorts-track {
+
+    padding-left: 18vw !important;
+    padding-right: 18vw !important;
+  }
+
+  .portfolio-grid.shorts-track > .short-item {
+
+    flex-basis: 76vw !important;
+
+    width: 76vw !important;
+
+    min-width: 76vw !important;
+  }
+
+
+  /* ===================================================
+     ARROWS
+     =================================================== */
+
+  .short-arrow {
+
+    font-size: 58px;
+  }
+}/* =====================================================
+   FINAL FIX — LONG VIDEO + PODCAST
+   MOBILE = ONE BELOW ANOTHER
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  /* Long Video and Podcast always occupy full row */
+  .portfolio-grid .long-video-card,
+  .portfolio-grid .podcast-card {
+    grid-column: 1 / -1 !important;
+
+    width: 100% !important;
+    max-width: 900px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* Full horizontal YouTube-style thumbnail */
+  .portfolio-grid .long-video-card > img,
+  .portfolio-grid .podcast-card > img {
+    width: 100% !important;
+    height: auto !important;
+
+    aspect-ratio: 16 / 9 !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+
+    border-radius: 10px !important;
+  }
+
+  /* Text */
+  .portfolio-grid .long-video-card h3,
+  .portfolio-grid .podcast-card h3 {
+    font-size: 20px !important;
+    margin: 12px 0 8px !important;
+  }
+
+  .portfolio-grid .long-video-card p,
+  .portfolio-grid .podcast-card p {
+    display: none !important;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONE
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .portfolio-grid .long-video-card,
+  .portfolio-grid .podcast-card {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .portfolio-grid .long-video-card > img,
+  .portfolio-grid .podcast-card > img {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+
+    border-radius: 10px !important;
+  }
+}/* =====================================================
+   FINAL — LONG VIDEO + PODCAST MOBILE LAYOUT
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  /* ================================================
+     LONG VIDEO + PODCAST WRAPPER
+     Each item gets its own full row
+     ================================================ */
+
+  .portfolio-grid:not(.shorts-track) .long-video-wrapper,
+  .portfolio-grid:not(.shorts-track) .podcast-wrapper {
+    grid-column: 1 / -1 !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ================================================
+     REVEAL WRAPPER
+     ================================================ */
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper > *,
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper > * {
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ================================================
+     LONG VIDEO + PODCAST CARD
+     ================================================ */
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper .long-video-card,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper .podcast-card {
+
+    width: 100% !important;
+    max-width: 900px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ================================================
+     YOUTUBE STYLE 16:9 THUMBNAIL
+     ================================================ */
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper .long-video-card > img,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper .podcast-card > img {
+
+    width: 100% !important;
+    height: auto !important;
+
+    aspect-ratio: 16 / 9 !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+
+    border-radius: 10px !important;
+  }
+
+
+  /* ================================================
+     TEXT
+     ================================================ */
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper .long-video-card h3,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper .podcast-card h3 {
+
+    font-size: 20px !important;
+
+    margin: 12px 0 8px !important;
+  }
+
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper .long-video-card p,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper .podcast-card p {
+
+    display: none !important;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper {
+
+    grid-column: 1 / -1 !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper .long-video-card,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper .podcast-card {
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .portfolio-grid:not(.shorts-track)
+  .long-video-wrapper .long-video-card > img,
+
+  .portfolio-grid:not(.shorts-track)
+  .podcast-wrapper .podcast-card > img {
+
+    width: 100% !important;
+
+    aspect-ratio: 16 / 9 !important;
+
+    height: auto !important;
+
+    object-fit: cover !important;
+
+    border-radius: 10px !important;
+  }
+}
+
+
+/* =====================================================
+   REMOVE REELS SHADOW / FADE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  .portfolio-grid.shorts-track
+  > .short-item:not(.active-short-item) {
+
+    filter: none !important;
+  }
+
+  .portfolio-grid.shorts-track::before,
+  .portfolio-grid.shorts-track::after {
+
+    display: none !important;
+
+    content: none !important;
+  }
+}.slide-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 25px;
+  font-size: 15px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.slide-hint span:first-child,
+.slide-hint span:last-child {
+  font-size: 24px;
+}/* PLAY BUTTON FOR SHORTS */
+.shorts-track .portfolio-card {
+  position: relative !important;
+}
+
+.shorts-track .reel-play-button {
+  position: absolute !important;
+  top: 15px !important;
+  left: 15px !important;
+  width: 42px !important;
+  height: 42px !important;
+  border: 2px solid #fff !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: #fff !important;
+  font-size: 17px !important;
+  line-height: 1 !important;
+  z-index: 999 !important;
+  pointer-events: none !important;
 }

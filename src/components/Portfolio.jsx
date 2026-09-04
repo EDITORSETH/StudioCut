@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Portfolio.css";
 import Reveal from "./Reveal";
 
 function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("Podcast Reel");
+  const [activeShort, setActiveShort] = useState(0);
+
+  const carouselRef = useRef(null);
 
   const categories = [
     "Podcast Reel",
@@ -21,7 +24,6 @@ function Portfolio() {
       desc: "High retention podcast editing.",
       link: "https://www.instagram.com/reel/DZXKX8hRt3i/",
     },
-
     {
       category: "Podcast Reel",
       image: "/podcast-thumbnail-2.png",
@@ -29,7 +31,6 @@ function Portfolio() {
       desc: "High retention podcast editing.",
       link: "https://www.instagram.com/reel/Da7dfRCx111/",
     },
-
     {
       category: "Podcast Reel",
       image: "/podcast-thumbnail-3.png",
@@ -45,7 +46,6 @@ function Portfolio() {
       desc: "Cinematic property videos.",
       link: "https://www.instagram.com/reel/DbBUJ22Rcfd/",
     },
-
     {
       category: "Real Estate",
       image: "/realestate-2.png",
@@ -53,7 +53,6 @@ function Portfolio() {
       desc: "Cinematic property videos.",
       link: "https://www.instagram.com/reel/DbcjQHABuA6/",
     },
-
     {
       category: "Real Estate",
       image: "/realestate-3.jpg",
@@ -77,7 +76,6 @@ function Portfolio() {
       desc: "Creative AI visuals with storytelling.",
       link: "https://instagram.com",
     },
-
     {
       category: "AI Videos",
       image: "/ai-video-3.jpg",
@@ -93,7 +91,6 @@ function Portfolio() {
       desc: "Professional before & after editing.",
       link: "https://www.instagram.com/reel/Dba4yT7JDBt/",
     },
-
     {
       category: "Before / After",
       image: "/before-after-2.png",
@@ -101,7 +98,6 @@ function Portfolio() {
       desc: "Professional before & after editing.",
       link: "https://instagram.com",
     },
-
     {
       category: "Before / After",
       image: "/before-after-3.png",
@@ -117,7 +113,6 @@ function Portfolio() {
       desc: "Long-form YouTube podcast editing.",
       link: "https://youtu.be/RIfAu4c3o8s",
     },
-
     {
       category: "Podcast",
       image: "/long-video-2.png",
@@ -125,7 +120,6 @@ function Portfolio() {
       desc: "Long-form YouTube podcast editing.",
       link: "https://youtu.be/VxBg_1ofYbY",
     },
-
     {
       category: "Podcast",
       image: "/long-video-3.png",
@@ -138,6 +132,60 @@ function Portfolio() {
   const filteredProjects = projects.filter(
     (item) => item.category === activeCategory
   );
+
+  const isShortsCategory =
+    filteredProjects.length > 0 &&
+    filteredProjects.every(
+      (project) =>
+        project.category !== "Long Video" &&
+        project.category !== "Podcast"
+    );
+
+  useEffect(() => {
+    setActiveShort(0);
+
+    if (!isShortsCategory || !carouselRef.current) return;
+
+    const carousel = carouselRef.current;
+
+    const updateActive = () => {
+      const items = carousel.querySelectorAll(".short-item");
+
+      if (!items.length) return;
+
+      const carouselRect = carousel.getBoundingClientRect();
+      const carouselCenter = carouselRect.left + carouselRect.width / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      items.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        const itemCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(carouselCenter - itemCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveShort(closestIndex);
+    };
+
+    requestAnimationFrame(updateActive);
+
+    carousel.addEventListener("scroll", updateActive, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", updateActive);
+
+    return () => {
+      carousel.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", updateActive);
+    };
+  }, [activeCategory, isShortsCategory]);
 
   return (
     <section className="portfolio" id="portfolio">
@@ -164,46 +212,83 @@ function Portfolio() {
         ))}
       </div>
 
-      <div className="portfolio-grid">
+      <div
+        ref={isShortsCategory ? carouselRef : null}
+        className={
+          isShortsCategory
+            ? "portfolio-grid shorts-track"
+            : "portfolio-grid"
+        }
+      >
 
         {filteredProjects.map((project, index) => {
+  const isLongVideo = project.category === "Long Video";
+  const isPodcast = project.category === "Podcast";
 
-          const isLongVideo = project.category === "Long Video";
-          const isPodcast = project.category === "Podcast";
+  return (
+    <div
+      key={index}
+      className={
+        isShortsCategory
+          ? `short-item ${
+              activeShort === index ? "active-short-item" : ""
+            }`
+          : `portfolio-item-wrapper ${
+              isLongVideo
+                ? "long-video-wrapper"
+                : isPodcast
+                ? "podcast-wrapper"
+                : "vertical-wrapper"
+            }`
+      }
+    >
+      <Reveal delay={index * 0.08}>
 
-          return (
-            <Reveal
-              key={index}
-              delay={index * 0.08}
-            >
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className={
-                  isLongVideo
-                    ? "portfolio-card long-video-card"
-                    : isPodcast
-                    ? "portfolio-card podcast-card"
-                    : "portfolio-card vertical-card"
-                }
-              >
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noreferrer"
+          className={
+            isLongVideo
+              ? "portfolio-card long-video-card"
+              : isPodcast
+              ? "portfolio-card podcast-card"
+              : "portfolio-card vertical-card"
+          }
+        >
 
-                <img
-                  src={project.image}
-                  alt={project.title}
-                />
+          <img
+            src={project.image}
+            alt={project.title}
+          />
+<div className="reel-play-button">▶</div>
+          <h3>{project.title}</h3>
 
-                <h3>{project.title}</h3>
+          <p>{project.desc}</p>
 
-                <p>{project.desc}</p>
+        </a>
 
-              </a>
-            </Reveal>
-          );
-        })}
+      </Reveal>
+    </div>
+  );
+})}
+
+        {isShortsCategory && (
+          <>
+            <span className="short-arrow short-arrow-left">‹</span>
+            <span className="short-arrow short-arrow-right">›</span>
+          </>
+        )}
 
       </div>
+
+      {isShortsCategory && (
+        <div className="slide-hint">
+          <span>←</span>
+          <span>Slide Left & Right</span>
+          <span>→</span>
+        </div>
+)}
 
     </section>
   );

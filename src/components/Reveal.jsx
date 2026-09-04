@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Reveal.css";
 
-function Reveal({ children, delay = 0 }) {
+function Reveal({ children, delay = 0, className = "" }) {
 
   const ref = useRef(null);
   const [show, setShow] = useState(false);
@@ -34,7 +34,7 @@ function Reveal({ children, delay = 0 }) {
   return (
     <div
       ref={ref}
-      className={`reveal ${show ? "active" : ""}`}
+      className={`reveal ${show ? "active" : ""} ${className}`}
       style={{
         transitionDelay: `${delay}s`,
       }}
