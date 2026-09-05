@@ -19,21 +19,21 @@ function Portfolio() {
   const projects = [
     {
       category: "Podcast Reel",
-      image: "/podcast-thumbnail.png",
+      image: "/podcast-thumbnail.webp",
       title: "Podcast Reel 1",
       desc: "High retention podcast editing.",
-      link: "https://www.instagram.com/reel/DZXKX8hRt3i/",
+      link: "https://www.instagram.com/_mid_life_chaos_/reel/DZXKX8hRt3i/",
     },
     {
       category: "Podcast Reel",
-      image: "/podcast-thumbnail-2.png",
+      image: "/podcast-thumbnail-2.webp",
       title: "Podcast Reel 2",
       desc: "High retention podcast editing.",
       link: "https://www.instagram.com/reel/Da7dfRCx111/",
     },
     {
       category: "Podcast Reel",
-      image: "/podcast-thumbnail-3.png",
+      image: "/podcast-thumbnail-3.webp",
       title: "Podcast Reel 3",
       desc: "High retention podcast editing.",
       link: "https://www.instagram.com/reel/DbK3Lgdxhe9/",
@@ -41,88 +41,88 @@ function Portfolio() {
 
     {
       category: "Real Estate",
-      image: "/realestate-1.png",
+      image: "/realestate-1.webp",
       title: "Real Estate 1",
       desc: "Cinematic property videos.",
       link: "https://www.instagram.com/reel/DbBUJ22Rcfd/",
     },
     {
       category: "Real Estate",
-      image: "/realestate-2.png",
+      image: "/realestate-2.webp",
       title: "Real Estate 2",
       desc: "Cinematic property videos.",
-      link: "https://www.instagram.com/reel/DbcjQHABuA6/",
+      link: "https://www.instagram.com/paintals_realty/reel/Dcbz_RasvUU/",
     },
     {
       category: "Real Estate",
-      image: "/realestate-3.jpg",
+      image: "/realestate-3.webp",
       title: "Real Estate 3",
       desc: "Cinematic property videos.",
-      link: "https://instagram.com",
+      link: "https://www.instagram.com/paintals_realty/reel/Dbr91u-B3wU/",
     },
 
     {
       category: "Long Video",
-      image: "/longvideo-1.png",
+      image: "/longvideo-1.webp",
       title: "Long Video 1",
       desc: "Long-form YouTube video editing.",
       link: "https://youtu.be/tjcLBkWN7MU",
     },
 
     {
-      category: "AI Videos",
-      image: "/ai-video-2.jpg",
-      title: "AI Video 2",
-      desc: "Creative AI visuals with storytelling.",
-      link: "https://instagram.com",
+      category: "Long Video",
+      image: "/longvideo-2.webp",
+      title: "Long Video 2",
+      desc: "Long-form YouTube video editing.",
+      link: "https://youtu.be/tblCP3wtqkY?si=vcHceqEHl7uq0fRc",
     },
     {
       category: "AI Videos",
-      image: "/ai-video-3.jpg",
+      image: "/ai-video-3.webp",
       title: "AI Video 3",
       desc: "Creative AI visuals with storytelling.",
-      link: "https://instagram.com",
+      link: "https://youtu.be/tjcLBkWN7MU?si=UsJ8ekFR-M8ux3Rh",
     },
 
     {
       category: "Before / After",
-      image: "/before-after-1.png",
+      image: "/before-after-1.webp",
       title: "Before After Reel 1",
       desc: "Professional before & after editing.",
       link: "https://www.instagram.com/reel/Dba4yT7JDBt/",
     },
     {
       category: "Before / After",
-      image: "/before-after-2.png",
+      image: "/before-after-2.webp",
       title: "Before After Reel 2",
       desc: "Professional before & after editing.",
-      link: "https://instagram.com",
+      link: "https://www.instagram.com/editor_seth.17/reel/DcNxHccxhTu/",
     },
     {
       category: "Before / After",
-      image: "/before-after-3.png",
+      image: "/before-after-3.webp",
       title: "Before After Reel 3",
       desc: "Professional before & after editing.",
-      link: "https://instagram.com",
+      link: "https://www.instagram.com/editor_seth.17/reel/DcGW6wDJbeP/",
     },
 
     {
       category: "Podcast",
-      image: "/long-video-1.jpg",
+      image: "/long-video-1.webp",
       title: "Podcast Episode",
       desc: "Long-form YouTube podcast editing.",
       link: "https://youtu.be/RIfAu4c3o8s",
     },
     {
       category: "Podcast",
-      image: "/long-video-2.png",
+      image: "/long-video-2.webp",
       title: "Podcast Episode 2",
       desc: "Long-form YouTube podcast editing.",
       link: "https://youtu.be/VxBg_1ofYbY",
     },
     {
       category: "Podcast",
-      image: "/long-video-3.png",
+      image: "/long-video-3.webp",
       title: "Podcast Episode 3",
       desc: "Long-form YouTube podcast editing.",
       link: "https://youtu.be/jKQMMRHFnJg",
@@ -260,6 +260,7 @@ function Portfolio() {
           <img
             src={project.image}
             alt={project.title}
+            decoding="async"
           />
 <div className="reel-play-button">▶</div>
           <h3>{project.title}</h3>
